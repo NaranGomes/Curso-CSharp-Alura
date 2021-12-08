@@ -23,7 +23,8 @@ namespace _7_Condicionais
             {
                 if(quantidadePessoas >= 2)
                 {
-                    Console.WriteLine("É menor de idade, mas está acompanhado. Pode entrar.");
+                    Console.WriteLine("É menor de idade, mas está acompanhado." +
+                        " Pode entrar.");
                 }
                 else
                 {
