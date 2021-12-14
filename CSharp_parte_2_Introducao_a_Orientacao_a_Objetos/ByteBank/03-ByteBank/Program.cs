@@ -13,7 +13,7 @@ namespace _03_ByteBank
             ContaCorrente contaDoNaran = new ContaCorrente();
             contaDoNaran.titular = "Naran";
             contaDoNaran.Depositar(2200);
-
+ 
             Console.WriteLine(contaDoNaran.saldo);
 
             ContaCorrente contaDaSamile = new ContaCorrente();
