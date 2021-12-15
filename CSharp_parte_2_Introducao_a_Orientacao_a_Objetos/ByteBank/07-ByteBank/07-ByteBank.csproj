@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CE5DDAF4-96A4-46F3-97E5-D78D7002EA1B}</ProjectGuid>
+    <ProjectGuid>{88719808-20C1-4BD1-AE0E-2C5DE44DCBA7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_06_ByteBank</RootNamespace>
-    <AssemblyName>06-ByteBank</AssemblyName>
+    <RootNamespace>_07_ByteBank</RootNamespace>
+    <AssemblyName>_07_ByteBank</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="ContaCorrente.cs" />
-    <Compile Include="Endereco.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
