@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88719808-20C1-4BD1-AE0E-2C5DE44DCBA7}</ProjectGuid>
+    <ProjectGuid>{E61F0E68-0654-4B47-A162-5A62A7364186}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_07_ByteBank</RootNamespace>
-    <AssemblyName>07-ByteBank</AssemblyName>
+    <RootNamespace>ByteBank</RootNamespace>
+    <AssemblyName>ByteBank</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="ContaCorrente.cs" />
+    <Compile Include="Funcionarios\Diretor.cs" />
+    <Compile Include="Funcionarios\Funcionario.cs" />
+    <Compile Include="GerenciadorBonificacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

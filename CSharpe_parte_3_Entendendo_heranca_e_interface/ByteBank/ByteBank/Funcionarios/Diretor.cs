@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _07_ByteBank
+namespace ByteBank.Funcionarios
 {
-    internal class Cliente
+    public class Diretor
     {
         public string Nome { get; set; }
         public string CPF { get; set; }
-        public string Profissao { get; set; }
+        public double Salario { get; set; }
+
+        public double GetBonificacao()
+        {
+            return Salario;
+        }
     }
 }
