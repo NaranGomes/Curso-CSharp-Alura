@@ -10,28 +10,30 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            /*try
-            {
-                Metodo();
-            }
-            catch (DivideByZeroException e)
-            {
-                Console.WriteLine("Não é possivel divisão por 0!");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-            }*/
+
             try
             {
-                ContaCorrente conta = new ContaCorrente(0, 0);
+                ContaCorrente conta = new ContaCorrente(456, 4578420);
+                ContaCorrente conta2 = new ContaCorrente(485, 456478);
+
+                conta2.Transferir(-10, conta);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException ex)
             {
-                Console.WriteLine(e.Message);               
-                Console.WriteLine(e.ParamName);               
+                Console.WriteLine("Argumento com problema: " + ex.ParamName);
+                Console.WriteLine("Ocorreu um erro do tipo ArgumentException");
+                Console.WriteLine(ex.Message);
+            }catch (SaldoInsuficienteException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Exceção do tipo Saldo insuficiente Exception");
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
+
+
+
         }
 
         static void Metodo()
