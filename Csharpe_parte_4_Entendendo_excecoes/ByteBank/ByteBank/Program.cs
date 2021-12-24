@@ -10,30 +10,24 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-
             try
             {
-                ContaCorrente conta = new ContaCorrente(456, 4578420);
-                ContaCorrente conta2 = new ContaCorrente(485, 456478);
+                ContaCorrente conta1 = new ContaCorrente(123, 789456123);
+                ContaCorrente conta2 = new ContaCorrente(123, 654321789);
 
-                conta2.Transferir(-10, conta);
+                //conta1.Transferir(1000, conta2);
+                conta1.Sacar(10000);
             }
-            catch (ArgumentException ex)
+            catch (OperacaoFinanceiraException e)
             {
-                Console.WriteLine("Argumento com problema: " + ex.ParamName);
-                Console.WriteLine("Ocorreu um erro do tipo ArgumentException");
-                Console.WriteLine(ex.Message);
-            }catch (SaldoInsuficienteException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Exceção do tipo Saldo insuficiente Exception");
-            }catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+
+                //Console.WriteLine("Informaçõe da INNER EXCEPTION");
+                //Console.WriteLine(e.InnerException.Message);
+                //Console.WriteLine(e.InnerException.StackTrace);
+                
             }
-
-
-
         }
 
         static void Metodo()

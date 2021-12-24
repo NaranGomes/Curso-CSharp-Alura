@@ -11,6 +11,9 @@ namespace ByteBank
         public static double TaxaDeOperacao { get; private set; }
         public static int TotalDeContasCriadas { get; private set; }
 
+        public int ContadorSaquesNaoPermitidos { get; private set; }
+        public int ContadorTransferenciasNaoPermitidos { get; private set; }
+
         public int Agencia { get; }
         public int Numero { get; }
 
@@ -38,7 +41,7 @@ namespace ByteBank
         {
             if (agencia <= 0)
             {
-                throw new ArgumentException("O argumento agencia deve ser maior que 0.",nameof(agencia));
+                throw new ArgumentException("O argumento agencia deve ser maior que 0.", nameof(agencia));
             }
             if (numero <= 0)
             {
@@ -50,7 +53,7 @@ namespace ByteBank
 
             TotalDeContasCriadas++;
             TaxaDeOperacao = 30 / TotalDeContasCriadas;
-            
+
         }
 
 
@@ -62,11 +65,12 @@ namespace ByteBank
             }
             if (_saldo < valor)
             {
-                throw new SaldoInsuficienteException(_saldo, valor);    
+                ContadorSaquesNaoPermitidos++;
+                throw new SaldoInsuficienteException(_saldo, valor);
             }
 
             _saldo -= valor;
-            
+
         }
 
         public void Depositar(double valor)
@@ -82,7 +86,16 @@ namespace ByteBank
                 throw new ArgumentException("Valor inválido para a transferência", nameof(valor));
             }
 
-            Sacar(valor);
+            try 
+            {
+                Sacar(valor); 
+            }
+            catch(SaldoInsuficienteException ex)
+            {
+                ContadorTransferenciasNaoPermitidos++;
+                throw new OperacaoFinanceiraException("Operação não concluída!", ex);
+            }
+
             contaDestino.Depositar(valor);
         }
     }
