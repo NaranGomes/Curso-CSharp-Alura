@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,50 @@ namespace ByteBank
     internal class Program
     {
         static void Main(string[] args)
+        {
+            try
+            {
+                CarregarContasCorrente();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("CATCH no método MAIN");
+            }
+            
+        }
+
+        private static void CarregarContasCorrente()
+        {
+            /*LeitorDeArquivo leitor = null;
+
+            try
+            {
+                leitor = new LeitorDeArquivo("contasl.txt");
+                leitor.LerProximaLinha();
+                leitor.LerProximaLinha();
+                leitor.LerProximaLinha();
+
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Exceção do tipo IOException Capturada e Tratada");
+            }
+            finally
+            {
+                Console.WriteLine("Executando o Finally");
+                if (leitor != null)
+                {
+                    leitor.Fechar();
+                }
+            }*/
+            using (LeitorDeArquivo leitor = new LeitorDeArquivo("teste.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
+
+        }
+
+        private static void TestaInnerException()
         {
             try
             {
@@ -26,10 +71,9 @@ namespace ByteBank
                 //Console.WriteLine("Informaçõe da INNER EXCEPTION");
                 //Console.WriteLine(e.InnerException.Message);
                 //Console.WriteLine(e.InnerException.StackTrace);
-                
+
             }
         }
-
         static void Metodo()
         {
             TestaDivisao(0);
