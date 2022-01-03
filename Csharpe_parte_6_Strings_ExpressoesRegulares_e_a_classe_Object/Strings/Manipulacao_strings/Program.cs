@@ -11,8 +11,12 @@ namespace Manipulacao_strings
         static void Main(string[] args)
         {
             string url = "pagina?argumentos";
-            string argumentos = url.Substring(7);
+            int indiceInterrogacao = url.IndexOf('?');
+            
+            string argumentos = url.Substring(indiceInterrogacao + 1);
             Console.WriteLine(argumentos);
+
+
         }
     }
 }
