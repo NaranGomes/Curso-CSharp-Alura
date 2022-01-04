@@ -11,6 +11,16 @@ namespace Manipulacao_strings
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Olá mundo!");
+            Console.WriteLine(123);
+            Console.WriteLine(10.5);
+            Console.WriteLine(true);
+
+            Console.ReadLine();
+        }
+
+        static void TestaString()
+        {
             // Olá, meu nome é Guilherme e você pode entrar em contato comigo
             // através do número 8457-4456!
 
@@ -22,7 +32,7 @@ namespace Manipulacao_strings
             //string padrao = "[0-9]{4,5}[-]{0,1}[0-9]{4}";
             //string padrao = "[0-9]{4,5}-{0,1}[0-9]{4}";
             string padrao = "[0-9]{4,5}-?[0-9]{4}";
-            
+
             string textoDeTeste = "Meu nome é Guilherme, me ligue em 4784-4546";
             string textoDeTeste2 = "Meu nome é Guilherme, me ligue em 981844546";
 
@@ -49,7 +59,7 @@ namespace Manipulacao_strings
 
             string url = "pagina?argumentos";
             int indiceInterrogacao = url.IndexOf('?');
-            
+
             string argumentos = url.Substring(indiceInterrogacao + 1);
             Console.WriteLine(argumentos);
 
@@ -59,7 +69,6 @@ namespace Manipulacao_strings
             Console.WriteLine("Moeda de Origem: " + extrator.GetValor("MoEdAOrIgEm"));
             Console.WriteLine("Moeda de Destino: " + extrator.GetValor("mOeDaDeStInO"));
             Console.WriteLine(extrator.GetValor("VaLor"));
-
 
         }
     }
