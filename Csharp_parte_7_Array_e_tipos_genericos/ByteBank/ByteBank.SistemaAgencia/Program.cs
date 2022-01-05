@@ -12,23 +12,45 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+
+            ListaDeContaCorrentes lista = new ListaDeContaCorrentes();
+
+            lista.Adicionar(new ContaCorrente(123, 2345234));
+            lista.Adicionar(new ContaCorrente(132, 9879684));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+            lista.Adicionar(new ContaCorrente(143, 2348098));
+
+
+            Console.ReadLine();
+
+        }
+        static void TestaArrayDeContaCorrente()
+        {
             ContaCorrente[] contas = new ContaCorrente[]
             {
                 new ContaCorrente(123, 2345234),
                 new ContaCorrente(123, 2674534),
                 new ContaCorrente(123, 2674236)
             };
-                        
+
             for (int i = 0; i < contas.Length; i++)
             {
                 ContaCorrente contaAtual = contas[i];
                 Console.WriteLine($"Conta {i} {contaAtual.Numero}");
             }
-
-            Console.ReadLine();
-
         }
-
         static void TestaArrayInt()
         {
             //Vetor de object só pra testar
