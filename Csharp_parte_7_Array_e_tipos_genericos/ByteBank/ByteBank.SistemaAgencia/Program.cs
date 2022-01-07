@@ -13,28 +13,48 @@ namespace ByteBank.SistemaAgencia
         static void Main(string[] args)
         {
 
-            ListaDeContaCorrentes lista = new ListaDeContaCorrentes();
+            Console.WriteLine(SomarVarios(1, 2, 3));
+            Console.WriteLine(SomarVarios(1, 2, 3, 5, 6));
 
-            lista.Adicionar(new ContaCorrente(123, 2345234));
-            lista.Adicionar(new ContaCorrente(132, 9879684));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-            lista.Adicionar(new ContaCorrente(143, 2348098));
-
+            
 
             Console.ReadLine();
 
+        }
+
+        static void TestaListaDeContaCorrente()
+        {
+            ListaDeContaCorrentes lista = new ListaDeContaCorrentes();
+
+            ContaCorrente contaDoGui = new ContaCorrente(111, 1111111);
+
+            ContaCorrente[] contas = new ContaCorrente[]
+            {
+                contaDoGui,
+                new ContaCorrente(123, 2345234),
+                new ContaCorrente(132, 9879684)
+
+            };
+
+            lista.AdicionarVarios(contas);
+
+
+
+            for (int i = 0; i < lista.Tamanho; i++)
+            {
+                ContaCorrente itemAtual = lista[i];
+                Console.WriteLine($"Item na posição {i} = Conta {itemAtual.Numero}/{itemAtual.Agencia} ");
+            }
+
+        }
+        static int SomarVarios(params int[] numeros)
+        {
+            int acumulador = 0;
+            foreach (int item in numeros)
+            {
+                acumulador += item;
+            }
+            return acumulador;
         }
         static void TestaArrayDeContaCorrente()
         {

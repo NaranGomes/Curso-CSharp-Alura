@@ -11,6 +11,13 @@ namespace ByteBank.SistemaAgencia
     {
         private ContaCorrente[] _itens;
         private int _proximaPosicao;
+        public int Tamanho
+        {
+            get
+            {
+                return _proximaPosicao;
+            }
+        }
 
         public ListaDeContaCorrentes(int capacidadeInicial = 5)
         {
@@ -25,9 +32,27 @@ namespace ByteBank.SistemaAgencia
             _itens[_proximaPosicao] = item;
             _proximaPosicao++;
 
-            Console.WriteLine($"Adicionando no índice {_proximaPosicao} conta {item.Agencia}/{item.Numero}");
+            //Console.WriteLine($"Adicionando no índice {_proximaPosicao} conta {item.Agencia}/{item.Numero}");
         }
 
+        public void AdicionarVarios(params ContaCorrente[] itens)
+        {
+            foreach(ContaCorrente conta in itens)
+            {
+                Adicionar(conta);
+            }
+
+        }
+                
+        public ContaCorrente GetItemNoIndice(int indice)
+        {
+            if (indice < 0 || indice >= _proximaPosicao )
+            {
+                throw new ArgumentOutOfRangeException(nameof(indice));
+            }
+
+            return _itens[indice];
+        }
         private void VerificarCapacidade(int tamanhoNecessario)
         {
             if (_itens.Length >= tamanhoNecessario)
@@ -35,7 +60,7 @@ namespace ByteBank.SistemaAgencia
                 return;
             }
             int novoTamanho = _itens.Length * 2;
-            Console.WriteLine("Aumentando a capacidade da lista!");
+            //Console.WriteLine("Aumentando a capacidade da lista!");
             if (novoTamanho < tamanhoNecessario)
             {
                 novoTamanho = tamanhoNecessario;
@@ -75,6 +100,14 @@ namespace ByteBank.SistemaAgencia
             {
                 ContaCorrente conta = _itens[i];
                 Console.WriteLine($"Conta no indice {i}: número {conta.Agencia} {conta.Numero}");
+            }
+        }
+
+        public ContaCorrente this[int indice]
+        {
+            get
+            {
+                return GetItemNoIndice(indice);
             }
         }
 
