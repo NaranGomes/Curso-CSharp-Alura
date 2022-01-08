@@ -1,4 +1,5 @@
 ﻿using ByteBank.Modelos;
+using ByteBank.SistemaAgencia.Extensoes;
 using Humanizer;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,16 @@ namespace ByteBank.SistemaAgencia
             idades.Add(38);
             idades.Add(61);
 
-            idades.Remove(61);
+            idades.AdicionarVarios(45, 89, 12);
 
-            int[] range = new int[] {9,8,7,6,5,4,3,2,1};
+            List<string> nomes = new List<string>();
 
-            idades.AddRange(range);
-
-            ListExtensoes.AdicionarVarios(idades, 10, 20, 30, 40, 50);
-
-            idades.AdicionarVarios(321, 123, 456, 98798);
+            nomes.AdicionarVarios("Naran", "De", "Souza", "Gomes");
+        
+            for (int i = 0; i < nomes.Count; i++)
+            {
+                Console.WriteLine(nomes[i]);
+            }
 
             for (int i = 0; i < idades.Count; i++)
             {
