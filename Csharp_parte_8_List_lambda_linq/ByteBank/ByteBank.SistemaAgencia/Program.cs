@@ -1,4 +1,5 @@
 ﻿using ByteBank.Modelos;
+using ByteBank.SistemaAgencia.Comparadores;
 using ByteBank.SistemaAgencia.Extensoes;
 using Humanizer;
 using System;
@@ -15,13 +16,13 @@ namespace ByteBank.SistemaAgencia
         {
             var contas = new List<ContaCorrente>()
             {
-                new ContaCorrente(341, 57480),
+                new ContaCorrente(341, 37480),
                 new ContaCorrente(342, 57564),
                 new ContaCorrente(340, 48950),
-                new ContaCorrente(290, 48560),
+                new ContaCorrente(290, 88560),
             };
 
-            contas.Sort();
+            contas.Sort(new ComparadorContaCorrentePorAgencia());
 
             foreach (var conta in contas)
             {
