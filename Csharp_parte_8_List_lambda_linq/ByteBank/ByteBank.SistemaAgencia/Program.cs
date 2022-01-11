@@ -16,23 +16,36 @@ namespace ByteBank.SistemaAgencia
         {
             var contas = new List<ContaCorrente>()
             {
-                new ContaCorrente(341, 37480),
-                new ContaCorrente(342, 57564),
+                new ContaCorrente(341, 1),
+                new ContaCorrente(342, 99999),
+                new ContaCorrente(340, 57564),
                 new ContaCorrente(340, 48950),
                 new ContaCorrente(290, 88560),
             };
 
-            contas.Sort(new ComparadorContaCorrentePorAgencia());
+            //contas.Sort(new ComparadorContaCorrentePorAgencia());
+            IOrderedEnumerable<ContaCorrente> contasOrdenadas =
+                contas.OrderBy(conta =>
+                {
+                    if (conta == null)
+                    {
+                        return int.MaxValue;
+                    }
+                    return conta.Numero;
+                });
 
-            foreach (var conta in contas)
+            foreach (var conta in contasOrdenadas)
             {
-                Console.WriteLine($"Conta número {conta.Numero}, ag. {conta.Agencia}");
-            }          
-                
-                
+                if (conta != null)
+                {
+                    Console.WriteLine($"Conta número {conta.Numero}, ag. {conta.Agencia}");
+                }
+            }
+
+
             Console.ReadLine();
         }
-        
+
         static void TestaSort()
         {
             var nomes = new List<string>()
@@ -147,7 +160,7 @@ namespace ByteBank.SistemaAgencia
             //idades[4] = 28;
             //idades[5] = 60;
 
-            int[] idades = new int[] {15, 28, 35, 50, 28, 60};
+            int[] idades = new int[] { 15, 28, 35, 50, 28, 60 };
 
             int idadeDoIndice4 = idades[4];
 
