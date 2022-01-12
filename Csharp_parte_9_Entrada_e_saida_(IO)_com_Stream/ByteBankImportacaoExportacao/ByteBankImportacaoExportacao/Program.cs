@@ -12,12 +12,13 @@ namespace ByteBankImportacaoExportacao
     {
         static void Main(string[] args)
         {
-            CriarArquivoComWriter();
-            Console.WriteLine("Aplicação Finalizada");
+            LeituraBinaria();
+
+            Console.WriteLine("Aplicação Finalizada ...");
 
             Console.ReadLine();
         }
 
-        
+
     }
 }

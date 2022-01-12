@@ -36,5 +36,23 @@ namespace ByteBankImportacaoExportacao
             }
 
         }
+
+        static void TestaEscrita()
+        {
+            var caminhoDoArquivo = "teste.txt";
+
+            using(var fluxoDeArquivo = new FileStream(caminhoDoArquivo, FileMode.Create))
+            using(var escritor = new StreamWriter(fluxoDeArquivo))
+            {
+                for (int i = 0; i < 100000; i++)
+                {
+                    escritor.WriteLine($"Linha {i}");
+
+                    escritor.Flush();//Despeja o buffer para o Stream
+                    escritor.WriteLine($"Linha {i} foi escrita no arquivo. Tecle enter para escrever mais uma.");
+                    Console.ReadLine();
+                }
+            }
+        }
     }
 }
